@@ -2,6 +2,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
+    ./completions.nix
     ./plugins
   ];
 
