@@ -1,15 +1,18 @@
-{ inputs, ...} : {
+{ inputs, ... }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
+    ./plugins
   ];
 
-  # Absolutly incompetent writing minv
-  home.shellAliases.nv = "nvim";
-  home.shellAliases.nivm = "nvim";
-  home.shellAliases.nimv = "nvim";
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
 
-  # Replaing
-  home.shellAliases.vi = "nvim";
-  home.shellAliases.vim = "nvim";
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    luaLoader.enable = true;
+  };
 }
