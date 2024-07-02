@@ -101,6 +101,7 @@
     neovim
     git
     tmux
+    zsh
   ];
 
   # NIXOS experimental

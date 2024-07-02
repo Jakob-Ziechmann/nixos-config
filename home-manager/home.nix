@@ -9,7 +9,8 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    ./nvim
+    ./nvim.nix
+    ./zsh.nix
   ];
 
   nixpkgs = {
