@@ -102,6 +102,8 @@
     git
     tmux
     zsh
+    discord
+    inkscape
   ];
 
   # NIXOS experimental
