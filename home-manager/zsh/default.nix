@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  home.file.".p10k.zsh".source = ./p10k.zsh;
+
   programs.zsh = {
     enable = true;
     
@@ -17,9 +19,7 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
-    antidote = let 
-      omzp = x: "ohmyzsh/ohmyzsh path:plugins${x}";
-    in {
+    antidote = {
       enable = true;
 
       plugins = [
@@ -30,14 +30,6 @@
         "zsh-users/zsh-completions"
         "zsh-users/zsh-autosuggestions"
         "Aloxaf/fzf-tab"
-
-        # oh-my-zsh snippets
-        (omzp "git")
-        (omzp "git-auto-fetch")
-        (omzp "aws")
-        (omzp "kubectl")
-        (omzp "kubectx")
-        (omzp "command-not-found")
       ];
     };
   };
