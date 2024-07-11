@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, lib, ... }: {
+  imports = [
+    ./catppuccin.nix
+  ];
+
+  alacritty.theme.enableCatppuccin = lib.mkDefault true;
+
   programs.alacritty = {
     enable = true;
 
