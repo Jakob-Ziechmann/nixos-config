@@ -10,7 +10,7 @@
   # You can import other home-manager modules here
   imports = [
     ./nvim.nix
-    ./zsh
+    ./shell
     ./alacritty
     ./git.nix
   ];
@@ -59,14 +59,10 @@
 
   home.packages = with pkgs; [
     wget
-    neovim
-    git
     tmux
-    zsh
     gnumake
     youtube-music
     discord
     inkscape
-    alacrity 
   ];
 }
