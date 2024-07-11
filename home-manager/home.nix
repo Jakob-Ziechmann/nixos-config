@@ -12,6 +12,7 @@
     ./nvim.nix
     ./zsh
     ./alacritty
+    ./git.nix
   ];
 
   nixpkgs = {
@@ -55,4 +56,17 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
+
+  home.packages = with pkgs; [
+    wget
+    neovim
+    git
+    tmux
+    zsh
+    gnumake
+    youtube-music
+    discord
+    inkscape
+    alacrity 
+  ];
 }

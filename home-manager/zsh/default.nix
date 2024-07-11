@@ -34,6 +34,11 @@
     };
   };
 
+  programs.zsh.initExtra = ''
+    # Powerlevel10k prompt
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+  '';
+
   # Better Navigation
   programs.zoxide = {
     enable = true;

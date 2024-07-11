@@ -105,9 +105,6 @@
     git
     tmux
     zsh
-    discord
-    inkscape
-    alacritty
   ];
 
   fonts.packages = with pkgs; [
