@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -16,6 +16,9 @@
       cargo
       rustc
       gcc 
+
+      # Utilities 
+      xclip
     ];
   };
 }
