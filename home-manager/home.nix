@@ -14,6 +14,7 @@
     ./shell
     ./alacritty
     ./git.nix
+    ./tmux
   ];
 
   nixpkgs = {
