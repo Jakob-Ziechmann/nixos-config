@@ -9,6 +9,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
+    ./theme.nix
     ./nvim.nix
     ./shell
     ./alacritty
