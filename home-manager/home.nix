@@ -15,6 +15,7 @@
     ./alacritty
     ./git.nix
     ./tmux
+    ./gtk
   ];
 
   nixpkgs = {
