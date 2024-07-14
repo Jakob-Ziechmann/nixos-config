@@ -40,6 +40,8 @@
     };
   };
 
+  theme = "rose-pine";
+
   # TODO: Set your username
   home = {
     username = "xayah";
@@ -67,5 +69,7 @@
     youtube-music
     discord
     inkscape
+    steam
+    krita
   ];
 }

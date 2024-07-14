@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./themes.nix
@@ -10,5 +10,17 @@
 
   programs.tmux = {
     enable = true;
+
+    baseIndex = 1;
+    clock24 = true;
+    escapeTime = 0;
+
+    keyMode = "vi";
+
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.yank
+    ];
   };
 }

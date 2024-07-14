@@ -1,4 +1,4 @@
-{ config, lib, ... }: 
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -10,15 +10,17 @@ with lib;
 
   config = mkMerge [
     (mkIf (config.theme == "catppuccin") {
-      gtk-theme.rose-pine = true;
+      gtk-theme.catppuccin = true;
     })
 
     (mkIf (config.theme == "rose-pine") {
-      gtk-theme.catppuccin = true;
+      gtk-theme.rose-pine = true;
     })
 
     {
       gtk.enable = true;
+
+      home.packages = [ pkgs.gnome.gnome-tweaks ];
     }
   ];
 }
