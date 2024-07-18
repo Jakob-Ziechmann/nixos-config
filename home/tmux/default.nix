@@ -18,9 +18,6 @@
     keyMode = "vi";
 
     plugins = with pkgs; [
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.yank
     ];
   };
 }

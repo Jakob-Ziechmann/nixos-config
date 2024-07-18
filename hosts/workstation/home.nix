@@ -34,6 +34,11 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  home.shellAliases = {
+    hm-update = "home-manager switch --flake ~/nixos-config/.#xayah@nixos";
+    update = "sudo nixos-rebuild switch --flake ~/nixos-config/.#nixos";
+  };
+
   home.packages = with pkgs; [
     youtube-music
     discord

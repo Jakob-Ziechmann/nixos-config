@@ -16,6 +16,7 @@
     ./git.nix
     ./tmux
     ./gtk
+    ./lf
   ];
 
   theme = "rose-pine";
