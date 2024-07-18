@@ -17,8 +17,5 @@ in {
 
     ls = "ls --color";
     la = "ls -la --color";
-
-    hm-update = "home-manager switch --flake ~/nixos-config/.#xayah@nixos";
-    update = "sudo nixos-rebuild switch --flake ~/nixos-config/.#nixos";
   };
 }
