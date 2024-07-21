@@ -17,7 +17,14 @@
     ./tmux
     ./gtk
     ./lf
+    ./firefox.nix
   ];
+
+  # Allowing unfree nur
+  nixpkgs = {
+    overlays = [ inputs.nur.overlay ];
+    config.allowUnfree = true;
+  };
 
   theme = "rose-pine";
 
