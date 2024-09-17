@@ -28,5 +28,8 @@
 
   theme = "rose-pine";
 
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    darktable
+    signal-desktop
+  ];
 }

@@ -51,6 +51,15 @@
   # Packages and programs
   environment.systemPackages = with pkgs; [
     bottles
+    wine
+    wine64
+    winetricks
+    winePackages.fonts
+    winePackages.stableFull
+    (lutris.override {
+      extraPkgs = pkgs: [
+      ];
+    })
   ];
 
   programs.firefox.enable = true;

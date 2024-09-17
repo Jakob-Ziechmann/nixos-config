@@ -45,5 +45,6 @@
     inkscape
     steam
     krita
+    musescore
   ];
 }
