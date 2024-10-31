@@ -38,6 +38,12 @@
         # > Our main nixos configuration file <
         modules = [./hosts/workstation/configuration.nix];
       };
+
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        # > Our main nixos configuration file <
+        modules = [./hosts/wsl/configuration.nix];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -49,6 +55,13 @@
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
         modules = [ ./hosts/workstation/home.nix ];
+      };
+
+      "xayah@wsl" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [ ./hosts/wsl/home.nix ];
       };
     };
 
