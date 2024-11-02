@@ -19,6 +19,11 @@
     antidote.enable = true;
 
     defaultKeymap = "viins";
+
+		sessionVariables = {
+			EDITOR = "nvim";
+			VISUAL = "nvim";
+		};
   };
 
   programs.zoxide = {
