@@ -18,6 +18,7 @@
     ./gtk
     ./lf
     ./firefox.nix
+		./typsetting
   ];
 
   # Allowing unfree nur

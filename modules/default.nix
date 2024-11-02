@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [
-    ./general-desktop.nix
-  ];
+	imports = [
+		./general-desktop.nix
+	];
 }
