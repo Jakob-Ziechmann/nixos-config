@@ -19,6 +19,10 @@
         gs = "git status";
         gc = "git commit";
       };
+
+			programs.git.aliases = {
+				graph = ''log --oneline --graph --decorate --all'';
+			};
     })
 
     {

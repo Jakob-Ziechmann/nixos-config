@@ -17,5 +17,7 @@ in {
 
     ls = "ls --color";
     la = "ls -la --color";
+
+		nvimdiff = "nvim -d";
   };
 }
