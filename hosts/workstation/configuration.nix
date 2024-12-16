@@ -41,7 +41,7 @@
   users.users.xayah = {
     isNormalUser = true;
     description = "xayah";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
