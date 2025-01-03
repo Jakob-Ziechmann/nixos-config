@@ -5,43 +5,45 @@
 { pkgs, inputs, ... }:
 
 {
-  imports =
-    [ 
-      <nixos-wsl/modules>
-      ./hardware-configuration.nix
-      ../../modules
-    ];
+	imports =
+		[
+			<nixos-wsl/modules>
+			./hardware-configuration.nix
+			../../modules
+		];
 
-  wsl.enable = true;
-  wsl.defaultUser = "xayah";
+	wsl.enable = true;
+	wsl.defaultUser = "xayah";
 
-  nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.allowUnfree = true;
+	virtualisation.docker.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.xayah = {
-    isNormalUser = true;
-    description = "xayah";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
+# Define a user account. Don't forget to set a password with ‘passwd’.
+	users.users.xayah = {
+		isNormalUser = true;
+		description = "xayah";
+		extraGroups = [ "networkmanager" "wheel" "docker"];
+		shell = pkgs.zsh;
+	};
 
-  security.sudo = {
-    enable = true;
-    wheelNeedsPassword = true;
-  };
+	security.sudo = {
+		enable = true;
+		wheelNeedsPassword = true;
+	};
 
 
-  programs.zsh.enable = true;
+	programs.zsh.enable = true;
 
-  # NIXOS experimental
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+	# NIXOS experimental
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+	];
 
-  environment.systemPackages = with pkgs; [
-    dconf
-  ];
+	environment.systemPackages = with pkgs; [
+		dconf
+		xclip
+	];
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+	system.stateVersion = "24.05"; # Did you read the comment?
 }
