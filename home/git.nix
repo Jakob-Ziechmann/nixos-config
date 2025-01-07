@@ -18,6 +18,7 @@
         gaa = "git add .";
         gs = "git status";
         gc = "git commit";
+				gca = "git add . && git commit";
       };
 
 			programs.git.aliases = {
@@ -30,6 +31,10 @@
 
       git.setCredentials = lib.mkDefault true;
       git.addAliases = lib.mkDefault true;
+
+			programs.git.extraConfig = {
+				pull.rebase = true;
+			};
     }
   ];
 }
