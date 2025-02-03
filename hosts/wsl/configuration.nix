@@ -43,6 +43,7 @@
 	environment.systemPackages = with pkgs; [
 		dconf
 		xclip
+		gnumake
 	];
 
 	system.stateVersion = "24.05"; # Did you read the comment?

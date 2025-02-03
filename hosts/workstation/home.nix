@@ -46,5 +46,6 @@
     steam
     krita
     musescore
+		gnumake
   ];
 }
