@@ -33,6 +33,7 @@
     noto-fonts-emoji
     cm_unicode
     corefonts
+		liberation_ttf
   ];
 
   # Printing service
