@@ -15,7 +15,6 @@
   };
 
   # Pipewire sound engine
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -30,7 +29,7 @@
   fonts.packages = with pkgs; [
     nerdfonts
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     cm_unicode
     corefonts

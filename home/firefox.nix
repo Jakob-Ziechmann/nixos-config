@@ -72,7 +72,6 @@
           "Google".metaData.alias = "@g";
         };
       };
-      
 
       settings = {
         "browser.disableResetPrompt" = true;
