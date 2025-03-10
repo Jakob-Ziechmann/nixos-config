@@ -30,5 +30,6 @@
   home.packages = with pkgs; [
     darktable
     signal-desktop
+		jq
   ];
 }
