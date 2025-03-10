@@ -20,7 +20,7 @@ with lib;
     {
       gtk.enable = true;
 
-      home.packages = [ pkgs.gnome.gnome-tweaks ];
+      home.packages = [ pkgs.gnome-tweaks ];
     }
   ];
 }

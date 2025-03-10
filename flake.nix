@@ -4,7 +4,7 @@
 	inputs = {
 		# Nixpkgs
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-		nixpkgs-unstable.url = "github:nixos/nixpkgs-channels/nixos-unstable";
+		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		# Home manager
 		home-manager = {
@@ -28,32 +28,31 @@
 		home-manager,
 		...
 	} @ inputs: let
-	inherit (self) outputs;
-	pkgsUnstable = import inputs.nixpkgs-unstable { 
-		system = "x86_64-linux";
-		config.allowUnfree = true;
-		config.allowUnfreePredicate = _ : true;
-	};
+		inherit (self) outputs;
+		unstable = import inputs.unstable {
+			system = "x86_64-linux";
+			config.allowUnfree = true;
+			config.allowUnfreePredicate = _ : true;
+		};
 	in {
 		# NixOS configuration entrypoint
 		# Available through 'nixos-rebuild --flake .#your-hostname'
 		nixosConfigurations = {
 
 			nixos = nixpkgs.lib.nixosSystem {
-				specialArgs = { 
+				specialArgs = {
 					inherit inputs outputs;
-					pkgsUnstable = pkgsUnstable;
+					unstable = unstable;
 				};
 				# > Our main nixos configuration file <
 				modules = [./hosts/workstation/configuration.nix];
 			};
 
 			wsl = nixpkgs.lib.nixosSystem {
-				specialArgs = { 
-					inherit inputs outputs; 
-					pkgsUnstable = pkgsUnstable;
+				specialArgs = {
+					inherit inputs outputs;
+					unstable = unstable;
 				};
-				# > Our main nixos configuration file <
 				modules = [./hosts/wsl/configuration.nix];
 			};
 		};
@@ -61,24 +60,21 @@
 		# Standalone home-manager configuration entrypoint
 		# Available through 'home-manager --flake .#your-username@your-hostname'
 		homeConfigurations = {
-
 			"xayah@nixos" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-					extraSpecialArgs = { 
-						inherit inputs outputs; 
-						pkgsUnstable = pkgsUnstable;
+				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+					extraSpecialArgs = {
+						inherit inputs outputs;
+						unstable = unstable;
 					};
-				# > Our main home-manager configuration file <
 				modules = [ ./hosts/workstation/home.nix ];
 			};
 
 			"xayah@wsl" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+				pkgs = nixpkgs.legacyPackages.x86_64-linux;
 					extraSpecialArgs = {
 						inherit inputs outputs;
-						pkgsUnstable = pkgsUnstable;
+						unstable = unstable;
 					};
-				# > Our main home-manager configuration file <
 				modules = [ ./hosts/wsl/home.nix ];
 			};
 		};
