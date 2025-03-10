@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
-
+{ pkgs, nixos-wsl, ... }:
 {
 	imports =
 		[
-			<nixos-wsl/modules>
+			nixos-wsl.nixosModules.default {
+				system.stateVersion = "24.05";
+				wsl.enable = true;
+			}
 			./hardware-configuration.nix
 			../../modules
 		];
@@ -18,7 +20,6 @@
 	nixpkgs.config.allowUnfree = true;
 	virtualisation.docker.enable = true;
 
-	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.xayah = {
 		isNormalUser = true;
 		description = "xayah";

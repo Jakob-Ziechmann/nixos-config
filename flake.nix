@@ -12,6 +12,9 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		# WSL
+		nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
 		nur = {
 			url = "github:nix-community/nur";
 		};
@@ -26,6 +29,7 @@
 		self,
 		nixpkgs,
 		home-manager,
+		nixos-wsl,
 		...
 	} @ inputs: let
 		inherit (self) outputs;
@@ -52,8 +56,11 @@
 				specialArgs = {
 					inherit inputs outputs;
 					unstable = unstable;
+					nixos-wsl = nixos-wsl;
 				};
-				modules = [./hosts/wsl/configuration.nix];
+				modules = [
+					./hosts/wsl/configuration.nix
+				];
 			};
 		};
 
